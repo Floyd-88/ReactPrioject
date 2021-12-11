@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+.grid {
+  display: grid;
+  width: 1200px;
+  margin: 0 auto;
+  grid-template-areas: 
+  "header header header"
+  "nav mainContent mainContent";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+grid-area: header;
+background-color: rgb(131, 126, 126);
+z-index: 2;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.headerLogo {
   display: flex;
-  flex-direction: column;
+  margin-left: 1%;
+}
+
+.imgLogo {
+  display: flex;
+  width: 100%;
+  z-index: 1;
+
+  }
+
+.nameNet {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-left: 1%;
+}
+
+.nameNetText {
+  display: flex;
+  font-size: 40px;
+  font-family: fantasy;
+}
+
+.nav {
+grid-area: nav;
+background-color: rgb(106, 110, 106);
+}
+
+.navLink {
+  font-size: 25px;
+  font-family: fangsong;
+  font-weight: 900;
+  margin: 10px;
+}
+
+a {
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.mainContent {
+grid-area: mainContent;
+display: flex;
+flex-direction: column;
+background-color: rgba(189, 194, 185, 0.856);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fone img {
+width: 100%;
+height: 200px;
+}
+
+.avaProfile {
+display: flex;
+flex-direction: row;
+}
+
+.ava img {
+  width: 120px;
+  height: 120px;
+}
+
+.profile {
+  width: 100%;
+}
+
+.myName{
+  font-size: 24px;
+  font-family: cursive;
+  font-weight: bold;
+  margin-left: 50px;
+  margin-top: 0;
+}
+
+.profileDate {
+  font-size: 17px;
+    font-family: cursive;
+    font-style: oblique;
+    font-weight: 500;
+    margin: 0px 45px;
+}
+
+.posts {
+  font-size: 20px;
+    font-family: cursive;
+    font-style: oblique;
+    font-weight: 500;
+    margin: 5px 10px; 
+}
+
+.newPost textarea {
+display: block;
+width: 99%;
+height: 100px;
+}
+
+.input {
+  display: block;
+  margin-left: 90%;
+  margin-top: 10px;
+}
+
+.post {
+  font-size: 20px;
+  font-family: cursive;
+  font-style: revert;
+  margin-left: 20px;
 }
