@@ -55,6 +55,11 @@ background-color: rgb(106, 110, 106);
   margin: 10px;
 }
 
+.navLink a:hover {
+  color: #eb4444;
+text-decoration: underline;
+}
+
 a {
   text-decoration: none;
   color: white;
