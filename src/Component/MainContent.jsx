@@ -1,36 +1,37 @@
 import React from 'react';
+import s from "./MainContent.module.css"
 
 const MainContent = () => {
-    return <div className="mainContent">
-    <div className="fone">
+    return <div className={s.mainContent}>
+    <div className={s.fone}>
     <img src="https://s1.1zoom.ru/b5050/975/359653-admin_2560x1440.jpg" />
     </div>
 
-    <div className="avaProfile">
-      <div className="ava">
+    <div className={s.avaProfile}>
+      <div className={s.ava}>
         <img src="https://sun9-69.userapi.com/impg/7GleHWdfHiLIlV-GxPx5cyGBYAhcCywPu1_gDg/hFCPgHBGGno.jpg?size=1080x1080&quality=96&sign=a98c39460439a1f18d7a2db39ebed4d2&c_uniq_tag=o4vfwNGjSuhMphSrNgI4Vhhv1Z5RmX5q8NM0ZMj_nSI&type=album" />
       </div>
 
-      <div className="profile">
-        <p className="myName">Мое Имя</p>
-        <p className="profileDate">День рождения: 27 ноября</p>
-        <p className="profileDate">город: Ставрополь</p>
-        <p className="profileDate">Образование: СевКавГТУ</p>
-        <p className="profileDate">Веб-сайт:</p>
+      <div className={s.profile}>
+        <p className={s.myName}>Мое Имя</p>
+        <p className={s.profileDate}>День рождения: 27 ноября</p>
+        <p className={s.profileDate}>город: Ставрополь</p>
+        <p className={s.profileDate}>Образование: СевКавГТУ</p>
+        <p className={s.profileDate}>Веб-сайт:</p>
 
       </div>
     </div>
-    <div className="myPost">
-      <p className="posts">My post</p>
+    <div className={s.myPost}>
+      <p className={s.posts}>My post</p>
     </div>
-    <div className="newPost">
+    <div className={s.newPost}>
       <textarea></textarea>
-      <input className="input" type="submit" value="Отправить" />
+      <input className={s.input} type="submit" value="Отправить" />
     </div>
-    <div className="post">
+    <div className={s.post}>
       <p>Сегодня прекрасный день!!!!</p>
     </div>
-    <div className="post">
+    <div className={s.post}>
       <p>Как настроения?!!!</p>
     </div>
   </div>
