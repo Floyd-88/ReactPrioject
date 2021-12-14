@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  grid-area: header;
+  background-color: rgb(131, 126, 126);
+  z-index: 2;
+  }
+  
+  .headerLogo {
+    display: flex;
+    margin-left: 1%;
+  }
+  
+  .imgLogo {
+    display: flex;
+    width: 100%;
+    z-index: 1;
+    }
+
+    .nameNet {
+      display: flex;
+      align-items: center;
+      margin-left: 1%;
+    }
+    
+    .nameNetText {
+      display: flex;
+      font-size: 40px;
+      font-family: fantasy;
+    }

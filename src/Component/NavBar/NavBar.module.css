@@ -1,0 +1,23 @@
+.nav {
+  grid-area: nav;
+  background-color: rgb(106, 110, 106);
+  }
+  
+  .navLink {
+    font-size: 25px;
+    font-family: fangsong;
+    font-weight: 900;
+    margin: 10px;
+  }
+  
+  .navLink a:hover {
+    color: green;
+  text-decoration: underline;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+ 
