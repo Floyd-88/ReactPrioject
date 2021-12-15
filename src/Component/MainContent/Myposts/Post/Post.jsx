@@ -1,11 +1,13 @@
 import React from 'react';
 import s from "./Post.module.css"
 
-const Post = () => {
+const Post = (props) => {
+  console.log(props.massege);
   return (
     <div>
+      
       <div className={s.post}>
-        <p>Сегодня прекрасный день!!!!</p>
+        {props.message}
       </div>
     </div>)
 
