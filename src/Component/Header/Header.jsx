@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import s from "./Header.module.css";
 
 const Header = () => {
@@ -7,7 +8,7 @@ const Header = () => {
         <img className={s.imgLogo} src="https://sklad.freeimg.ru/rsynced_images/animal-2028258_1280.png" />
     </div>
     <div className={s.nameNet}>
-    <p className={s.nameNetText}>racconnet</p>
+    <NavLink to="/mainContent" className={s.nameNetText}>racconnet</NavLink>
     </div>
   </header>
 }

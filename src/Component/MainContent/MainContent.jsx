@@ -4,7 +4,7 @@ import Myposts from './Myposts/Myposts';
 
 const MainContent = () => {
   return(
-  <div className={s.mainContent}>
+  <div>
     <div className={s.fone}>
       <img src="https://s1.1zoom.ru/b5050/975/359653-admin_2560x1440.jpg" />
     </div>
@@ -15,7 +15,7 @@ const MainContent = () => {
       </div>
 
       <div className={s.profile}>
-        <p className={s.myName}>Мое Имя</p>
+        <p className={s.myName}>Илья</p>
         <p className={s.profileDate}>День рождения: 27 ноября</p>
         <p className={s.profileDate}>город: Ставрополь</p>
         <p className={s.profileDate}>Образование: СевКавГТУ</p>

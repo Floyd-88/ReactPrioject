@@ -1,6 +1,8 @@
 .nav {
   grid-area: nav;
   background-color: rgb(106, 110, 106);
+  padding-top: 20px;
+  padding-left: 10px;
   }
   
   .navLink {
@@ -11,13 +13,20 @@
   }
   
   .navLink a:hover {
-    color: green;
-  text-decoration: underline;
+    color: rgb(166, 172, 166);
+    font-size: 27px;
   }
   
   a {
     text-decoration: none;
     color: white;
   }
+  .active {
+    color: black;
+    font-family: fangsong;
+    font-size: 27px;
+    margin: 10px;
+  }
+
 
  

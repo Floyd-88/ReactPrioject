@@ -9,7 +9,12 @@
   grid-template-columns: 2fr 10fr;
   grid-gap: 10px;
 }
-
+.wrapper-content {
+  grid-area: mainContent;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(189, 194, 185, 0.856);
+  }
 
 
 
