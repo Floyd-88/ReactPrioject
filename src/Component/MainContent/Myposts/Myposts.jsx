@@ -3,24 +3,27 @@ import s from "./Myposts.module.css";
 import Post from './Post/Post';
 
 const Myposts = () => {
-  return(
-  <div>
 
+  let postData = [
+    { id: 1, message: 'Это мое первое сообщение!!!' },
+    { id: 2, message: 'Привет всем!!!' },
+    { id: 3, message: 'Как дела?!' }
+  ]
+
+  let postElements = postData.map(p => <Post message={p.message} />)
+
+  return (
     <div>
-      <p className={s.posts}>My post</p>
-    </div>
+      <div>
+        <p className={s.posts}>My post</p>
+      </div>
 
-    <div className={s.newPost}>
-      <textarea></textarea>
-      <input className={s.input} type="submit" value="Отправить" />
-    </div>
-
-    <Post message='Это мое первое сообщение!!!' />
-    <Post message="Привет всем!!!" />
-    <Post message="Как дела?!" />
-  
-
-  </div>)
+      <div className={s.newPost}>
+        <textarea></textarea>
+        <input className={s.input} type="submit" value="Отправить" />
+      </div>
+      {postElements}
+    </div>)
 
 
 }

@@ -10,6 +10,8 @@
     font-family: fangsong;
     font-weight: 900;
     margin: 10px;
+    text-decoration: none;
+    color: white;
   }
   
   .navLink a:hover {
@@ -17,12 +19,9 @@
     font-size: 27px;
   }
   
-  a {
-    text-decoration: none;
-    color: white;
-  }
+
   .active {
-    color: black;
+    color: rgb(19, 18, 18);
     font-family: fangsong;
     font-size: 27px;
     margin: 10px;
