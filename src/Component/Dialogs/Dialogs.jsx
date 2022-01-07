@@ -1,42 +1,32 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import s from "./Dialogs.module.css";
-
-
-const DialogItem = (props) => {
-    return (
-    <div className={s.dialog}>
-        <NavLink to={
-            "/Dialogs/" + props.id} className={dialog => dialog.isActive ? s.active : s.dialog}>{props.name}</NavLink>
-    </div>)
-}
-
-const Messege = (props) => {
-    return (
-        <div className={s.messageitem}>
-            {props.messege}
-        </div>
-    )
-}
+import DialogItem from './DialogsItem/DialogItem';
+import Message from './Message/Message';
 
 const Dialogs = (props) => {
+    let dialogsItemsElements = props.variable.dialogsItemsData.map(d => <DialogItem name={d.name} id={d.id} />);
+    let messagesDataElements = props.variable.messagesData.map(m => <Message message={m.message} />);
 
-    let dialogsItemsData = [
-        {id: "1", name: "Илья"},
-        {id: "2", name: "Михаил"},
-        {id: "3", name: "Виктор"},
-        {id: "4", name: "Евгений"},
-        {id: "5", name: "Иван"},
-    ];
+    let newMessageElement = React.createRef();
 
-    let messagesData = [
-        {id: 1, messege: "Hello, my frends"},
-        {id: 2, messege: "Yo"},
-        {id: 3, messege: "How are you?"},
-        {id: 4, messege: "I`m fine!"},
-    ];
-    let dialogsItemsElements = dialogsItemsData.map(d => <DialogItem name={d.name} id={d.id} />);
-    let messagesDataElements = messagesData.map(m => <Messege messege={m.messege} />);
+    // let addNewMessage = () => {
+    //     let newMessageDialogs = newMessageElement.current.value;
+    //     props.addMessage(newMessageDialogs);
+    //     newMessageElement.current.value = "";
+    // }
+
+
+
+    let addMessage = () => {
+        props.dispatch({ type: "ADD-MESSAGE" });
+    }
+
+    let updateMessage = () => {
+        let text = newMessageElement.current.value;
+        let action = { type: "UPDATE-NEW-MESSAGE-TEXT", newMessage: text }
+        props.dispatch(action);
+    }
+
 
     return (
         <div className={s.dialogs}>
@@ -45,7 +35,9 @@ const Dialogs = (props) => {
             </div>
 
             <div className={s.messages}>
-            {messagesDataElements}
+                {messagesDataElements}
+                <textarea ref={newMessageElement} onChange={updateMessage} value={props.variable.postMessagePage} className={s.newMessage} />
+                <button onClick={addMessage} className={s.buttonNewMessage}>Отправить</button>
             </div>
 
         </div>)

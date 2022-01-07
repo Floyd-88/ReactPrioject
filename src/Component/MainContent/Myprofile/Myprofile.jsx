@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./Myprofile.module.css"
 
-const Myprofile = () => {
+const Myprofile = (props) => {
   return(
   <div>
     <div className={s.fone}>

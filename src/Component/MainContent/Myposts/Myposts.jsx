@@ -2,15 +2,20 @@ import React from 'react';
 import s from "./Myposts.module.css";
 import Post from './Post/Post';
 
-const Myposts = () => {
+const Myposts = (props) => {
+  let postElements = props.posts.map(p => <Post message={p.message} />)
 
-  let postData = [
-    { id: 1, message: 'Это мое первое сообщение!!!' },
-    { id: 2, message: 'Привет всем!!!' },
-    { id: 3, message: 'Как дела?!' }
-  ]
+  let newPostElement = React.createRef();
 
-  let postElements = postData.map(p => <Post message={p.message} />)
+  let addPost = () => {
+    props.dispatch( {type: "ADD-POST"} );
+  };
+
+  let updatePost = () => {
+    let text = newPostElement.current.value;
+    let action = {type: "UPDATE-NEW-POST-TEXT", newText: text}
+    props.dispatch(action);
+  }
 
   return (
     <div>
@@ -19,8 +24,8 @@ const Myposts = () => {
       </div>
 
       <div className={s.newPost}>
-        <textarea></textarea>
-        <input className={s.input} type="submit" value="Отправить" />
+        <textarea ref={newPostElement} onChange={updatePost} value={props.postTextPage} />
+        <input className={s.input} onClick={addPost} type="submit" value="Отправить" />
       </div>
       {postElements}
     </div>)

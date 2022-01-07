@@ -9,10 +9,9 @@ import News from './Component/News/News';
 import Music from './Component/Music/Music';
 import Settings from './Component/Settings/Settings';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Frends from './Component/Frends/Frends';
+const App = (props) => {
 
-
-
-const App = () => {
   return (
     <BrowserRouter>
       <div className="grid">
@@ -20,11 +19,19 @@ const App = () => {
         <NavBar />
         <div className="wrapper-content">
           <Routes>
-            <Route path='/mainContent' element={<MainContent />} />
-            <Route path='/dialogs/*' element={<Dialogs />} />
+            <Route path='/mainContent' element={<MainContent 
+            variable={props.variable.postPage} 
+            dispatch = {props.dispatch} 
+            />} />
+            
+            <Route path='/dialogs/*' element={<Dialogs 
+            variable={props.variable.dialogsPage} 
+            dispatch={props.dispatch} />} />
+            
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
-            <Route path='/Settings' element={<Settings />} />
+            <Route path='/settings' element={<Settings />} />
+            <Route path='/frends' element={<Frends variable={props.variable.sidebar}/>} />
           </Routes>
         </div>
 

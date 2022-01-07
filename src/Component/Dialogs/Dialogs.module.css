@@ -16,11 +16,15 @@
     font-family: auto;
     font-weight: 400;
     margin-left: 5px;
+    display: flex;
+    align-items: center;
 }
 
 .messageitem {
     color: black;
     padding: 5px;
+    display: flex;
+    align-items: center;
 }
 .active {
     color:rgb(31, 29, 28);
@@ -36,4 +40,25 @@
 
   .messages {
       background-color: rgb(186, 199, 199);
+  }
+
+  .dialog img {
+        width: 50px;
+        border-radius: 70%;
+  }
+
+  .messageitem img {
+    width: 50px;
+    border-radius: 70%;
+  }
+
+  .newMessage {
+    display: block;
+    width: 600px;
+    height: 100px;
+    margin-top: 50px;
+  }
+
+  .buttonNewMessage {
+    display: block;
   }

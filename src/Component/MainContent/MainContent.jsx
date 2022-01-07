@@ -3,11 +3,13 @@ import s from "./MainContent.module.css"
 import Myposts from './Myposts/Myposts';
 import Myprofile from './Myprofile/Myprofile';
 
-const MainContent = () => {
+const MainContent = (props) => {
   return(
   <div>
     <Myprofile />  
-    <Myposts />
+    <Myposts posts={props.variable.postData} 
+    dispatch = {props.dispatch} 
+    postTextPage = {props.variable.postTextPage} />
   </div>)
 }
 

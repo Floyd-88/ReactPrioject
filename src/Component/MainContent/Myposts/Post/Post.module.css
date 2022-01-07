@@ -4,4 +4,11 @@
     font-style: revert;
     margin-left: 20px;
     padding-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .post img {
+    width: 50px;
+    border-radius: 70%;
   }
