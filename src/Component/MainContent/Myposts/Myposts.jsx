@@ -1,6 +1,9 @@
 import React from 'react';
+import { addPostActionCreater, updatePostActionCreater } from '../../variable/postPage-reducer';
 import s from "./Myposts.module.css";
 import Post from './Post/Post';
+
+
 
 const Myposts = (props) => {
   let postElements = props.posts.map(p => <Post message={p.message} />)
@@ -8,13 +11,12 @@ const Myposts = (props) => {
   let newPostElement = React.createRef();
 
   let addPost = () => {
-    props.dispatch( {type: "ADD-POST"} );
+    props.dispatch( addPostActionCreater() );
   };
 
   let updatePost = () => {
     let text = newPostElement.current.value;
-    let action = {type: "UPDATE-NEW-POST-TEXT", newText: text}
-    props.dispatch(action);
+    props.dispatch( updatePostActionCreater(text) );
   }
 
   return (

@@ -1,3 +1,12 @@
+import dialogsPageReducer from "./dialogsPage-reducer";
+import postPageReducer from "./postPage-reducer";
+import sidebarReducer from "./sidebar-reducer";
+
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const ADD_MESSAGE = "ADD-MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+
 let store = {
 
     _variable: {
@@ -47,45 +56,16 @@ let store = {
     },
     _callSubscriber() {
     },
-
-    dispatch(action) {
-        if (action.type === "ADD-POST") {
-
-            let Post = {
-                id: 5,
-                message: this._variable.postPage.postTextPage,
-            };
-            this._variable.postPage.postData.push(Post);
-            this._variable.postPage.postTextPage = "";
-            this._callSubscriber(this._variable);
-
-        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
-
-            this._variable.postPage.postTextPage = action.newText;
-            this._callSubscriber(this._variable);
-
-        } else if (action.type === "ADD-MESSAGE") {
-
-            let Message = {
-                id: 6,
-                message: this._variable.dialogsPage.postMessagePage,
-            };
-            this._variable.dialogsPage.messagesData.push(Message);
-            this._variable.dialogsPage.postMessagePage = "";
-            this._callSubscriber(this._variable);
-
-        } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
-
-            this._variable.dialogsPage.postMessagePage = action.newMessage;
-            this._callSubscriber(this._variable);
-
-        }
-    },
-
-
-
     subscribe(observer) {
         this._callSubscriber = observer;
+    },
+
+    dispatch(action) {
+        this._variable.postPage = postPageReducer(this._variable.postPage, action);
+        this._variable.dialogsPage = dialogsPageReducer(this._variable.dialogsPage, action);
+        this._variable.sidebar = sidebarReducer(this._variable.sidebar, action);
+
+        this._callSubscriber(this._variable);
     },
 
 }

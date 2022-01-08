@@ -8,12 +8,11 @@ import Dialogs from './Component/Dialogs/Dialogs';
 import News from './Component/News/News';
 import Music from './Component/Music/Music';
 import Settings from './Component/Settings/Settings';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Frends from './Component/Frends/Frends';
 const App = (props) => {
 
   return (
-    <BrowserRouter>
       <div className="grid">
         <Header />
         <NavBar />
@@ -21,8 +20,7 @@ const App = (props) => {
           <Routes>
             <Route path='/mainContent' element={<MainContent 
             variable={props.variable.postPage} 
-            dispatch = {props.dispatch} 
-            />} />
+            dispatch = {props.dispatch} />} />
             
             <Route path='/dialogs/*' element={<Dialogs 
             variable={props.variable.dialogsPage} 
@@ -36,7 +34,6 @@ const App = (props) => {
         </div>
 
       </div >
-    </BrowserRouter>
   );
 }
 

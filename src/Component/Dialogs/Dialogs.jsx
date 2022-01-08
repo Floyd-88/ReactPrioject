@@ -1,4 +1,5 @@
 import React from 'react';
+import { addMessageActionCreater, updateMessageActionCreater } from '../variable/dialogsPage-reducer';
 import s from "./Dialogs.module.css";
 import DialogItem from './DialogsItem/DialogItem';
 import Message from './Message/Message';
@@ -9,24 +10,14 @@ const Dialogs = (props) => {
 
     let newMessageElement = React.createRef();
 
-    // let addNewMessage = () => {
-    //     let newMessageDialogs = newMessageElement.current.value;
-    //     props.addMessage(newMessageDialogs);
-    //     newMessageElement.current.value = "";
-    // }
-
-
-
     let addMessage = () => {
-        props.dispatch({ type: "ADD-MESSAGE" });
+        props.dispatch( addMessageActionCreater() );
     }
 
     let updateMessage = () => {
         let text = newMessageElement.current.value;
-        let action = { type: "UPDATE-NEW-MESSAGE-TEXT", newMessage: text }
-        props.dispatch(action);
+        props.dispatch( updateMessageActionCreater(text) );
     }
-
 
     return (
         <div className={s.dialogs}>
@@ -36,11 +27,14 @@ const Dialogs = (props) => {
 
             <div className={s.messages}>
                 {messagesDataElements}
-                <textarea ref={newMessageElement} onChange={updateMessage} value={props.variable.postMessagePage} className={s.newMessage} />
+                <textarea placeholder='Написать сообщение' ref={newMessageElement} 
+                onChange={updateMessage} 
+                value={props.variable.postMessagePage} 
+                className={s.newMessage} />
+
                 <button onClick={addMessage} className={s.buttonNewMessage}>Отправить</button>
             </div>
 
         </div>)
 }
-
 export default Dialogs;
