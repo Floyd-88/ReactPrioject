@@ -13,23 +13,27 @@ let initialState = {
 
 
 const postPageReducer = (variable = initialState, action) => {
-    
     switch (action.type) {
 
-        case ADD_POST:
+        case ADD_POST: {
             let Post = {
                 id: 5,
                 message: variable.postTextPage,
             };
-            variable.postData.push(Post);
-            variable.postTextPage = "";
-            
-            return variable;
-            
+
+            return {
+                ...variable,
+                postTextPage: "",
+                postData: [ ...variable.postData, {id: 5, message: variable.postTextPage}],
+                };
+        }
+
         case UPDATE_NEW_POST_TEXT:
-            variable.postTextPage = action.newText; 
-            return variable;
-            
+            return {
+                ...variable,
+                postTextPage: action.newText,
+            };
+        
         default:
             return variable;
     }

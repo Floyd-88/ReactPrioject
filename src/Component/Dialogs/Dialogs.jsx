@@ -1,22 +1,20 @@
 import React from 'react';
-import { addMessageActionCreater, updateMessageActionCreater } from '../variable/dialogsPage-reducer';
 import s from "./Dialogs.module.css";
 import DialogItem from './DialogsItem/DialogItem';
 import Message from './Message/Message';
 
 const Dialogs = (props) => {
-    let dialogsItemsElements = props.variable.dialogsItemsData.map(d => <DialogItem name={d.name} id={d.id} />);
-    let messagesDataElements = props.variable.messagesData.map(m => <Message message={m.message} />);
-
+    let dialogsItemsElements = props.dialogsItemsData.map(d => <DialogItem name={d.name} id={d.id} />);
+    let messagesDataElements = props.messagesData.map(m => <Message message={m.message} />);
     let newMessageElement = React.createRef();
 
     let addMessage = () => {
-        props.dispatch( addMessageActionCreater() );
+        props.addMessage();
     }
 
     let updateMessage = () => {
         let text = newMessageElement.current.value;
-        props.dispatch( updateMessageActionCreater(text) );
+        props.updateNewMessage(text);
     }
 
     return (
@@ -29,7 +27,7 @@ const Dialogs = (props) => {
                 {messagesDataElements}
                 <textarea placeholder='Написать сообщение' ref={newMessageElement} 
                 onChange={updateMessage} 
-                value={props.variable.postMessagePage} 
+                value={props.postMessagePage} 
                 className={s.newMessage} />
 
                 <button onClick={addMessage} className={s.buttonNewMessage}>Отправить</button>

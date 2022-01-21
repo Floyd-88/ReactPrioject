@@ -21,21 +21,30 @@ let initialState ={
 const dialogsPageReducer = (variable = initialState, action) => {
     switch (action.type) {
 
-        case ADD_MESSAGE:
+        case ADD_MESSAGE: {
             let Message = {
                 id: 6,
                 message: variable.postMessagePage,
             };
-            variable.messagesData.push(Message);
-            variable.postMessagePage = "";
-                        
-            return variable;
-
-        case UPDATE_NEW_MESSAGE_TEXT:
-            variable.postMessagePage = action.newMessage;
-            
-            return variable;
-        
+            return {
+                ...variable,
+                postMessagePage: "",
+                messagesData: [...variable.messagesData, {id: 6, message: variable.postMessagePage}]
+            };
+        // variableCopy.messagesData =[...variable.messagesData]; 
+        //variableCopy.messagesData.push(Message);
+        //variableCopy.postMessagePage = "";
+        //return variableCopy;                
+    
+        }
+        case UPDATE_NEW_MESSAGE_TEXT:{
+            return {
+                ...variable,
+                postMessagePage: action.newMessage,
+            };
+        //postMessagePage = action.newMessage;
+        //return variableCopy;
+        }
         default:
             return variable;
     }
